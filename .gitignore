@@ -71,3 +71,4 @@ target/
 .mypy_cache/
 /.nox/
 /.pytype/
+.env

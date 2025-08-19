@@ -7,7 +7,7 @@ PROJECT_NAME=tfd-api-client
 
 # Available generators: python, python-pydantic-v1, python-fastapi, go, go-server.
 OPENAPI_GENERATOR=python
-OPENAPI_CONFIG=configs/openapi-codegen.yaml
+OPENAPI_CONFIG=openapi-codegen.yaml
 
 NEXON_SCHEMA_DIR=spec
 NEXON_OPENAPI_SCHEMA=tfd.openapi.yaml

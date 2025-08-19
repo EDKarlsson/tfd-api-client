@@ -1,0 +1,7 @@
+general:
+  set-plural: 
+    - meta
+    - recommendation
+paths:
+  recommendation/module: module recomendations
+  meta/research.json: research # no plural for research
