@@ -1,0 +1,820 @@
+openapi: 3.0.3
+info:
+  title: The First Descendant API
+  version: 1.0.0
+  contact:
+    name: help_openapi@nexon.co.kr
+  description: |-
+    - Game data for The First Descendant becomes available after 10 minutes on average.
+    - Please note that the OUID may change due to game content updates. Be cautious when renewing services based on the OUID.
+    - For the interpretation of various ID values such as those for descendants, weapons, etc., please refer to the separately provided metadata API (/meta/).
+    - Nickname must distinguish between uppercase and lowercase letters.
+servers:
+  - url: 'https://open.api.nexon.com'
+tags:
+  - name: User
+    description: Account information retrieval
+
+paths:
+  /tfd/v1/id:
+    get:
+      tags:
+        - User
+      summary: Retrieve account identifier (OUID)
+      description: Retrieves the account identifier (OUID).
+      operationId: thefirstdescendant_get_user_id
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: user_name
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Nickname
+          example: Nickname#1234
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /tfd/v1/user/basic:
+    get:
+      tags:
+        - User
+      summary: Retrieve basic information
+      description: Retrieves basic information.
+      operationId: thefirstdescendant_get_user_basic
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: ouid
+          in: query
+          required: true
+          schema:
+            type: string
+          description: OUID
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserBasic'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /tfd/v1/user/descendant:
+    get:
+      tags:
+        - User
+      summary: Retrieve equipped descendant information
+      description: Retrieves information about the equipped descendant.<br>- For equipped module and customization information, it will be updated after you reconnect to the game or complete content with active matchmaking.
+      operationId: thefirstdescendant_get_user_descendant
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: ouid
+          in: query
+          required: true
+          schema:
+            type: string
+          description: OUID
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDescendant'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /tfd/v1/user/weapon:
+    get:
+      tags:
+       - User
+      summary: Retrieve equipped weapon information
+      description: Retrieves information about weapons equipped in all slots.<br>- For equipped module information, it will be updated after you reconnect to the game or complete content with active matchmaking.
+      operationId: thefirstdescendant_get_user_weapon
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: language_code
+          in: query
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+        - name: ouid
+          in: query
+          required: true
+          schema:
+            type: string
+          description: OUID
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWeapon'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /tfd/v1/user/reactor:
+    get:
+      tags:
+       - User
+      summary: Retrieve equipped Reactor information
+      description: Retrieves information about the equipped Reactor.
+      operationId: thefirstdescendant_get_user_reactor
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: language_code
+          in: query
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+        - name: ouid
+          in: query
+          required: true
+          schema:
+            type: string
+          description: OUID
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserReactor'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /tfd/v1/user/external-component:
+    get:
+      tags:
+       - User
+      summary: Retrieve equipped external component information
+      description: Retrieves information about external components equipped in all slots.
+      operationId: thefirstdescendant_get_user_external-component
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: language_code
+          in: query
+          schema:
+            type: string
+            enum:
+              - ko
+              - en
+              - de
+              - fr
+              - ja
+              - zh-CN
+              - zh-TW
+              - it
+              - pl
+              - pt
+              - ru
+              - es
+          description: language code
+          required: true
+        - name: ouid
+          in: query
+          required: true
+          schema:
+            type: string
+          description: OUID
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserExternalComponent'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+  /tfd/v1/user/arche-tuning:
+    get:
+      tags:
+        - User
+      summary: Retrieve Arche tuning information
+      description: |-
+        Retrieves the Arche tuning information.
+        - Returns the activated nodes and their coordinates for each descendant group.
+      operationId: thefirstdescendant_get_user_arche_tuning
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: ouid
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Account identifier
+        - name: descendant_group_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Descendant group identifier (Refer to /meta/descendant-group API)
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserArcheTuning'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        ouid:
+          type: string
+          description: OUID
+    UserBasic:
+      type: object
+      properties:
+        ouid:
+          type: string
+          description: OUID
+        user_name:
+          type: string
+          description: Nickname
+          example: Nickname#1234
+        platform_type:
+          type: string
+          description: Platform type
+        mastery_rank_level:
+          type: number
+          format: int64
+          description: Mastery Rank
+        mastery_rank_exp:
+          type: number
+          format: int64
+          description: Mastery Rank EXP
+        title_prefix_id:
+          type: string
+          description: Prefix title identifier (Refer to /meta/title API)
+        title_suffix_id:
+          type: string
+          description: Suffix title identifier (Refer to /meta/title API)
+        os_language:
+          type: string
+          description: OS language setting
+        game_language:
+          type: string
+          description: Game language setting
+        medal_id:
+          type: string
+          description: Medal identifier
+        medal_level:
+          type: number
+          format: int64
+          description: Medal grade
+    UserDescendant:
+      type: object
+      properties:
+        ouid:
+          type: string
+          description: OUID
+        user_name:
+          type: string
+          description: Nickname
+          example: Nickname#1234
+        descendant_id:
+          type: string
+          description: Equipped descendant identifier (Refer to /meta/descendant API)
+        descendant_slot_id:
+          type: string
+          description: Descendant slot identifier
+        descendant_level:
+          type: number
+          format: int64
+          description: Equipped descendant level
+        module_max_capacity:
+          type: number
+          format: int64
+          description: Max. equippable module capacity
+        module_capacity:
+          type: number
+          format: int64
+          description: Equipped capacity
+        energy_activator_use_count:
+          type: number
+          format: int64
+          description: Energy activator usage count
+        module:
+          type: array
+          description: Module information
+          items:
+            type: object
+            properties:
+              module_slot_id:
+                type: string
+                description: Module slot identifier
+              module_id:
+                type: string
+                description: Module identifier (Refer to /meta/module API)
+              module_enchant_level:
+                type: number
+                format: int64
+                description: Module enchantment level
+        customizing:
+          type: array
+          description: Customization information
+          items:
+            type: object
+            properties:
+              customizing_item_slot_id:
+                type: string
+                description: Customization item slot identifier
+              customizing_item_type:
+                type: string
+                description: Customization item type
+              customizing_item_id:
+                type: string
+                description: Customization item identifier (Refer to /meta/customizing-item API)
+              customizing_item_evolution_stage:
+                type: number
+                format: int64
+                description: Evolution stage of the customization item
+              customizing_item_current_evolution_stage:
+                type: number
+                format: int64
+                description: Currently selected evolution stage of the customization item
+              paint:
+                type: array
+                description: Paint information
+                items:
+                  type: object
+                  properties:
+                    customizing_item_slot_id:
+                      type: string
+                      description: Paint customization slot identifier
+                    customizing_item_type:
+                      type: string
+                      description: Paint customization item identifier
+                    customizing_item_id:
+                      type: string
+                      description: Paint customization item identifier (Refer to /meta/customizing-item API)
+
+    UserWeapon:
+      type: object
+      properties:
+        ouid:
+          type: string
+          description: OUID
+        user_name:
+          type: string
+          description: Nickname
+          example: Nickname#1234
+        weapon:
+          type: array
+          description: Weapon information
+          items:
+            type: object
+            properties:
+              module_max_capacity:
+                type: number
+                format: int64
+                description: Max. equippable module capacity
+              module_capacity:
+                type: number
+                format: int64
+                description: Equipped capacity
+              energy_activator_use_count:
+                type: number
+                format: int64
+                description: Energy activator usage count
+              weapon_slot_id:
+                type: string
+                description: Weapon slot identifier
+              weapon_id:
+                type: string
+                description: Weapon identifier (Refer to /meta/weapon API)
+              weapon_level:
+                type: number
+                format: int64
+                description: Weapon level
+              perk_ability_enchant_level:
+                type: number
+                format: int64
+                description: Weapon Unique Ability enchantment level
+              weapon_additional_stat:
+                type: array
+                description: Weapon random option information
+                items:
+                  type: object
+                  properties:
+                    additional_stat_name:
+                      type: string
+                      description: Weapon random option name
+                    additional_stat_value:
+                      type: string
+                      description: Weapon random option value
+              module:
+                type: array
+                description: Module information
+                items:
+                  type: object
+                  properties:
+                    module_slot_id:
+                      type: string
+                      description: Module slot identifier
+                    module_id:
+                      type: string
+                      description: Module identifier (Refer to /meta/module API)
+                    module_enchant_level:
+                      type: number
+                      format: int64
+                      description: Module enchantment level
+              core_unlock_flag:
+                type: string
+                description: Core unlock status (0:Locked | 1:Unlocked)
+              core:
+                type: array
+                description: Core option information
+                items:
+                  type: object
+                  properties:
+                    core_slot_id:
+                      type: string
+                      description: Core slot identifier
+                    core_option_name:
+                      type: string
+                      description: Core option name
+                    core_option_value:
+                      type: string
+                      description: Core option value
+    UserReactor:
+      type: object
+      properties:
+        ouid:
+          type: string
+          description: OUID
+        user_name:
+          type: string
+          description: Nickname
+          example: Nickname#1234
+        reactor_id:
+          type: string
+          description: Reactor identifier (Refer to /meta/reactor API)
+        reactor_slot_id:
+          type: string
+          description: Reactor slot identifier
+        reactor_level:
+          type: number
+          format: int64
+          description: Reactor level
+        reactor_additional_stat:
+          type: array
+          description: Reactor information
+          items:
+            type: object
+            properties:
+              additional_stat_name:
+                type: string
+                description: Reactor random option name
+              additional_stat_value:
+                type: string
+                description: Reactor random option value
+        reactor_enchant_level:
+          type: number
+          format: int64
+          description: Reactor enchantment level
+    UserExternalComponent:
+      type: object
+      properties:
+        ouid:
+          type: string
+          description: OUID
+        user_name:
+          type: string
+          description: Nickname
+          example: Nickname#1234
+        external_component:
+          type: array
+          description: External component information
+          items:
+            type: object
+            properties:
+              external_component_slot_id:
+                type: string
+                description: External component slot identifier
+              external_component_id:
+                type: string
+                description: External component identifier (Refer to /meta/external-component API)
+              external_component_level:
+                type: number
+                format: int64
+                description: External component level
+              external_component_additional_stat:
+                type: array
+                description: External component random option information
+                items:
+                  type: object
+                  properties:
+                    additional_stat_name:
+                      type: string
+                      description: External component random option name
+                    additional_stat_value:
+                      type: string
+                      description: External component random option value
+              core_unlock_flag:
+                type: string
+                description: Core unlock status (0:Locked | 1:Unlocked)
+              core:
+                type: array
+                description: Core option information
+                items:
+                  type: object
+                  properties:
+                    core_slot_id:
+                      type: string
+                      description: Core slot identifier
+                    core_option_name:
+                      type: string
+                      description: Core option name
+                    core_option_value:
+                      type: string
+                      description: Core option value
+    UserArcheTuning:
+      type: object
+      properties:
+        ouid:
+          type: string
+          description: Account identifier
+        descendant_group_id:
+          type: string
+          description: Descendant group identifier (Refer to /meta/descendant-group API)
+        arche_tuning_board_group_id:
+          type: string
+          description: Arche tuning board group identifier (Refer to /meta/arche-tuning-board-group API)
+        arche_tuning:
+          type: array
+          description: Arche tuning list
+          items:
+            type: object
+            properties:
+              slot_id:
+                type: string
+                description: Slot identifier
+              arche_tuning_board:
+                type: array
+                description: Arche tuning board list
+                items:
+                  type: object
+                  properties:
+                    arche_tuning_board_id:
+                      type: string
+                      description: Arche tuning board identifier (Refer to /meta/arche-tuning-board API)
+                    node:
+                      type: array
+                      description: Node list
+                      items:
+                        type: object
+                        properties:
+                          node_id:
+                            type: string
+                            description: Node identifier (Refer to /meta/arche-tuning-node API)
+                          position_row:
+                            type: string
+                            description: Row coordinate of the node
+                          position_column:
+                            type: string
+                            description: Column coordinate of the node
+
+    ErrorMessage:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Error name
+            message:
+              type: string
+              description: Error description

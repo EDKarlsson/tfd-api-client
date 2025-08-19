@@ -1,0 +1,143 @@
+openapi: 3.0.3
+info:
+  title: The First Descendant API
+  version: 1.0.0
+  contact:
+    name: help_openapi@nexon.co.kr
+  description: |-
+    - Game data for The First Descendant becomes available after 10 minutes on average.
+    - Please note that the OUID may change due to game content updates. Be cautious when renewing services based on the OUID.
+    - For the interpretation of various ID values such as those for descendants, weapons, etc., please refer to the separately provided metadata API (/meta/).
+    - Recommended modules are provided based on the successful records of Void Intercept Battles. Therefore, if there are insufficient records matching the search criteria, the query responses may be empty.
+servers:
+  - url: 'https://open.api.nexon.com'
+tags:
+  - name: Recommendation
+    description: Module recommendation
+
+paths:
+  /tfd/v1/recommendation/module:
+    get:
+      tags:
+        - Recommendation
+      summary: Module recommendation
+      description: Recommends modules suited to the user.
+      parameters:
+        - name: x-nxopen-api-key
+          in: header
+          required: true
+          schema:
+            type: string
+          description: API KEY
+        - name: descendant_id
+          in: query
+          schema:
+            type: string
+          required: true
+          description: Descendant identifier (Refer to /meta/descendant API)
+        - name: weapon_id
+          in: query
+          schema:
+            type: string
+          required: true
+          description: Weapon identifier (Refer to /meta/weapon API)
+        - name: void_battle_id
+          in: query
+          schema:
+            type: string
+          required: true
+          description: Void Intercept Battle identifier (Refer to /meta/void-battle API)
+        - name: period
+          in: query
+          schema:
+            type: string
+            enum:
+              - 0
+              - 1
+              - 2
+          required: true
+          description: |
+            Query period
+            - 0: last 7 days
+            - 1: last 30 days
+            - 2: all time
+      responses:
+        '200':
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModuleRecommendationResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+
+components:
+  schemas:
+    ModuleRecommendationResponse:
+      type: object
+      properties:
+        descendant:
+          type: object
+          properties:
+            descendant_id:
+              type: string
+              description: Descendant identifier (Refer to /meta/descendant API)
+            recommendation:
+              type: array
+              description: Descendant Recommendation information
+              items:
+                type: object
+                properties:
+                  module_id:
+                    type: string
+                    description: Module identifier (Refer to /meta/module API)
+        weapon:
+          type: object
+          properties:
+            weapon_id:
+              type: string
+              description: Weapon identifier (Refer to /meta/weapon API)
+            recommendation:
+              type: array
+              description: Weapon Recommendation information
+              items:
+                type: object
+                properties:
+                  module_id:
+                    type: string
+                    description: Module identifier (Refer to /meta/module API)
+
+    ErrorMessage:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Error name
+            message:
+              type: string
+              description: Error description

@@ -1,0 +1,22 @@
+extends:
+  - recommended
+
+apis:
+  metadata@v2025.06.19.065105:
+    root: ./spec/metadata.openapi.yaml
+    rules:
+      no-ambiguous-paths: error
+  recommendation@v2024.07.03.235909:
+    root: ./spec/tmp-recommendation.openapi.yaml
+    openapi:
+      hideLogo: true
+  user@v2025.08.14.011224:
+    root: ./spec/tmp-user.openapi.yaml
+    openapi:
+      hideLogo: true
+
+openapi:
+  schemaExpansionLevel: 2
+  generateCodeSamples:
+    languages:
+      - lang: Python

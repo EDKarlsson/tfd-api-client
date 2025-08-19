@@ -1,0 +1,26 @@
+# openapi-codegen.conf.yaml
+generatorName: python
+# inputSpec: ./spec/nexon/metadata.openapi.yaml  # Path to your OpenAPI spec file
+# outputDir: ./out/python-client
+
+# Optional: Additional configuration options
+additionalProperties:
+  packageName: tfd_api_client
+  projectName: TFDApiClient
+  # packageVersion: 1.0.0
+  hideGenerationTimestamp: true
+  # generateSourceCodeOnly: true
+
+# Optional: Specify which files to generate
+globalProperties:
+  models: ""
+  apis: ""
+#   supportingFiles: ""
+
+# Optional: Specify which models or APIs to include/exclude
+# models:
+#   - Pet
+#   - User
+# apis:
+#   - PetApi
+#   - UserApi
