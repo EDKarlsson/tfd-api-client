@@ -72,3 +72,4 @@ target/
 /.nox/
 /.pytype/
 .env
+*.bu
