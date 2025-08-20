@@ -30,65 +30,65 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    "AcquisitionDetailResponseInner",
-    "AdaptLevelResponseInner",
-    "AmorphousOpenConditionDescriptionResponseInner",
-    "AmorphousRewardResponseInner",
-    "AmorphousRewardResponseInnerOpenRewardInner",
-    "AmorphousRewardResponseInnerOpenRewardInnerRewardItemInner",
-    "ArcheTuningBoardGroupResponseInner",
-    "ArcheTuningBoardResponseInner",
-    "ArcheTuningBoardResponseInnerNodeInner",
-    "ArcheTuningNodeResponseInner",
-    "ArcheTuningNodeResponseInnerNodeEffectInner",
-    "ConsumableMaterialResponseInner",
-    "CoreSlotResponseInner",
-    "CoreTypeResponseInner",
-    "CoreTypeResponseInnerCoreOptionInner",
-    "CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInner",
-    "CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect",
-    "CoreTypeResponseInnerCoreOptionInnerDetailInner",
-    "CoreTypeResponseInnerCoreOptionInnerDetailInnerRequiredCoreItem",
-    "CustomizingItemResponseInner",
-    "CustomizingItemResponseInnerCustomizingItemEvolutionStageInner",
-    "DescendantGroupResponseInner",
-    "DescendantLevelDetailResponseInner",
-    "DescendantResponseInner",
-    "DescendantResponseInnerDescendantSkillInner",
-    "DescendantResponseInnerDescendantStatInner",
-    "DescendantResponseInnerDescendantStatInnerStatDetailInner",
+    "AcquisitionDetailsInner",
+    "AdaptLevelsInner",
+    "AmorphousOpenConditionDescriptionsInner",
+    "AmorphousRewardsInner",
+    "AmorphousRewardsInnerOpenRewardInner",
+    "AmorphousRewardsInnerOpenRewardInnerRewardItemInner",
+    "ArcheTuningBoardGroupsInner",
+    "ArcheTuningBoardsInner",
+    "ArcheTuningBoardsInnerNodeInner",
+    "ArcheTuningNodesInner",
+    "ArcheTuningNodesInnerNodeEffectInner",
+    "ConsumableMaterialsInner",
+    "CoreSlotsInner",
+    "CoreTypesInner",
+    "CoreTypesInnerCoreOptionInner",
+    "CoreTypesInnerCoreOptionInnerAvailableItemOptionInner",
+    "CoreTypesInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect",
+    "CoreTypesInnerCoreOptionInnerDetailInner",
+    "CoreTypesInnerCoreOptionInnerDetailInnerRequiredCoreItem",
+    "CustomizingItemsInner",
+    "CustomizingItemsInnerCustomizingItemEvolutionStageInner",
+    "DescendantGroupsInner",
+    "DescendantLevelDetailsInner",
+    "DescendantsInner",
+    "DescendantsInnerDescendantSkillInner",
+    "DescendantsInnerDescendantStatInner",
+    "DescendantsInnerDescendantStatInnerStatDetailInner",
     "ErrorMessage",
     "ErrorMessageError",
-    "ExternalComponentResponseInner",
-    "ExternalComponentResponseInnerBaseStatInner",
-    "ExternalComponentResponseInnerSetOptionDetailInner",
-    "FellowLevelDetailResponseInner",
-    "FellowResponseInner",
-    "FellowResponseInnerFellowDetailInner",
-    "FellowResponseInnerFellowDetailInnerStatEffectInner",
-    "MasteryRankLevelDetailResponseInner",
-    "MedalResponseInner",
-    "MedalResponseInnerMedalDetailInner",
-    "ModuleRecommendationResponse",
-    "ModuleRecommendationResponseDescendant",
-    "ModuleRecommendationResponseDescendantRecommendationInner",
-    "ModuleRecommendationResponseWeapon",
-    "ModuleResponseInner",
-    "ModuleResponseInnerModuleStatInner",
-    "ReactorResponseInner",
-    "ReactorResponseInnerReactorSkillPowerInner",
-    "ReactorResponseInnerReactorSkillPowerInnerEnchantEffectInner",
-    "ReactorResponseInnerReactorSkillPowerInnerSkillPowerCoefficientInner",
-    "ResearchResponseInner",
-    "ResearchResponseInnerResearchCostInner",
-    "ResearchResponseInnerResearchMaterialInner",
-    "ResearchResponseInnerResearchResultInner",
-    "RewardResponseInner",
-    "RewardResponseInnerBattleZoneInner",
-    "RewardResponseInnerBattleZoneInnerRewardInner",
-    "StatResponseInner",
-    "TierResponseInner",
-    "TitleResponseInner",
+    "ExternalComponentsInner",
+    "ExternalComponentsInnerBaseStatInner",
+    "ExternalComponentsInnerSetOptionDetailInner",
+    "FellowLevelDetailsInner",
+    "FellowsInner",
+    "FellowsInnerFellowDetailInner",
+    "FellowsInnerFellowDetailInnerStatEffectInner",
+    "MasteryRankLevelDetailsInner",
+    "MedalsInner",
+    "MedalsInnerMedalDetailInner",
+    "ModuleRecommendations",
+    "ModuleRecommendationsDescendant",
+    "ModuleRecommendationsDescendantRecommendationInner",
+    "ModuleRecommendationsWeapon",
+    "ModulesInner",
+    "ModulesInnerModuleStatInner",
+    "ReactorsInner",
+    "ReactorsInnerReactorSkillPowerInner",
+    "ReactorsInnerReactorSkillPowerInnerEnchantEffectInner",
+    "ReactorsInnerReactorSkillPowerInnerSkillPowerCoefficientInner",
+    "ResearchInner",
+    "ResearchInnerResearchCostInner",
+    "ResearchInnerResearchMaterialInner",
+    "ResearchInnerResearchResultInner",
+    "RewardsInner",
+    "RewardsInnerBattleZoneInner",
+    "RewardsInnerBattleZoneInnerRewardInner",
+    "StatsInner",
+    "TiersInner",
+    "TitlesInner",
     "User",
     "UserArcheTuning",
     "UserArcheTuningArcheTuningInner",
@@ -108,12 +108,12 @@ __all__ = [
     "UserWeaponWeaponInner",
     "UserWeaponWeaponInnerCoreInner",
     "UserWeaponWeaponInnerWeaponAdditionalStatInner",
-    "VoidBattleResponseInner",
-    "WeaponResponseInner",
-    "WeaponResponseInnerBaseStatInner",
-    "WeaponResponseInnerFirearmAtkInner",
-    "WeaponResponseInnerFirearmAtkInnerFirearmInner",
-    "WeaponTypeResponseInner",
+    "VoidBattlesInner",
+    "WeaponTypesInner",
+    "WeaponsInner",
+    "WeaponsInnerBaseStatInner",
+    "WeaponsInnerFirearmAtkInner",
+    "WeaponsInnerFirearmAtkInnerFirearmInner",
 ]
 
 # import apis into sdk package
@@ -133,65 +133,65 @@ from tfd_api_client.exceptions import ApiAttributeError as ApiAttributeError
 from tfd_api_client.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from tfd_api_client.models.acquisition_detail_response_inner import AcquisitionDetailResponseInner as AcquisitionDetailResponseInner
-from tfd_api_client.models.adapt_level_response_inner import AdaptLevelResponseInner as AdaptLevelResponseInner
-from tfd_api_client.models.amorphous_open_condition_description_response_inner import AmorphousOpenConditionDescriptionResponseInner as AmorphousOpenConditionDescriptionResponseInner
-from tfd_api_client.models.amorphous_reward_response_inner import AmorphousRewardResponseInner as AmorphousRewardResponseInner
-from tfd_api_client.models.amorphous_reward_response_inner_open_reward_inner import AmorphousRewardResponseInnerOpenRewardInner as AmorphousRewardResponseInnerOpenRewardInner
-from tfd_api_client.models.amorphous_reward_response_inner_open_reward_inner_reward_item_inner import AmorphousRewardResponseInnerOpenRewardInnerRewardItemInner as AmorphousRewardResponseInnerOpenRewardInnerRewardItemInner
-from tfd_api_client.models.arche_tuning_board_group_response_inner import ArcheTuningBoardGroupResponseInner as ArcheTuningBoardGroupResponseInner
-from tfd_api_client.models.arche_tuning_board_response_inner import ArcheTuningBoardResponseInner as ArcheTuningBoardResponseInner
-from tfd_api_client.models.arche_tuning_board_response_inner_node_inner import ArcheTuningBoardResponseInnerNodeInner as ArcheTuningBoardResponseInnerNodeInner
-from tfd_api_client.models.arche_tuning_node_response_inner import ArcheTuningNodeResponseInner as ArcheTuningNodeResponseInner
-from tfd_api_client.models.arche_tuning_node_response_inner_node_effect_inner import ArcheTuningNodeResponseInnerNodeEffectInner as ArcheTuningNodeResponseInnerNodeEffectInner
-from tfd_api_client.models.consumable_material_response_inner import ConsumableMaterialResponseInner as ConsumableMaterialResponseInner
-from tfd_api_client.models.core_slot_response_inner import CoreSlotResponseInner as CoreSlotResponseInner
-from tfd_api_client.models.core_type_response_inner import CoreTypeResponseInner as CoreTypeResponseInner
-from tfd_api_client.models.core_type_response_inner_core_option_inner import CoreTypeResponseInnerCoreOptionInner as CoreTypeResponseInnerCoreOptionInner
-from tfd_api_client.models.core_type_response_inner_core_option_inner_available_item_option_inner import CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInner as CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInner
-from tfd_api_client.models.core_type_response_inner_core_option_inner_available_item_option_inner_option_effect import CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect as CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect
-from tfd_api_client.models.core_type_response_inner_core_option_inner_detail_inner import CoreTypeResponseInnerCoreOptionInnerDetailInner as CoreTypeResponseInnerCoreOptionInnerDetailInner
-from tfd_api_client.models.core_type_response_inner_core_option_inner_detail_inner_required_core_item import CoreTypeResponseInnerCoreOptionInnerDetailInnerRequiredCoreItem as CoreTypeResponseInnerCoreOptionInnerDetailInnerRequiredCoreItem
-from tfd_api_client.models.customizing_item_response_inner import CustomizingItemResponseInner as CustomizingItemResponseInner
-from tfd_api_client.models.customizing_item_response_inner_customizing_item_evolution_stage_inner import CustomizingItemResponseInnerCustomizingItemEvolutionStageInner as CustomizingItemResponseInnerCustomizingItemEvolutionStageInner
-from tfd_api_client.models.descendant_group_response_inner import DescendantGroupResponseInner as DescendantGroupResponseInner
-from tfd_api_client.models.descendant_level_detail_response_inner import DescendantLevelDetailResponseInner as DescendantLevelDetailResponseInner
-from tfd_api_client.models.descendant_response_inner import DescendantResponseInner as DescendantResponseInner
-from tfd_api_client.models.descendant_response_inner_descendant_skill_inner import DescendantResponseInnerDescendantSkillInner as DescendantResponseInnerDescendantSkillInner
-from tfd_api_client.models.descendant_response_inner_descendant_stat_inner import DescendantResponseInnerDescendantStatInner as DescendantResponseInnerDescendantStatInner
-from tfd_api_client.models.descendant_response_inner_descendant_stat_inner_stat_detail_inner import DescendantResponseInnerDescendantStatInnerStatDetailInner as DescendantResponseInnerDescendantStatInnerStatDetailInner
+from tfd_api_client.models.acquisition_details_inner import AcquisitionDetailsInner as AcquisitionDetailsInner
+from tfd_api_client.models.adapt_levels_inner import AdaptLevelsInner as AdaptLevelsInner
+from tfd_api_client.models.amorphous_open_condition_descriptions_inner import AmorphousOpenConditionDescriptionsInner as AmorphousOpenConditionDescriptionsInner
+from tfd_api_client.models.amorphous_rewards_inner import AmorphousRewardsInner as AmorphousRewardsInner
+from tfd_api_client.models.amorphous_rewards_inner_open_reward_inner import AmorphousRewardsInnerOpenRewardInner as AmorphousRewardsInnerOpenRewardInner
+from tfd_api_client.models.amorphous_rewards_inner_open_reward_inner_reward_item_inner import AmorphousRewardsInnerOpenRewardInnerRewardItemInner as AmorphousRewardsInnerOpenRewardInnerRewardItemInner
+from tfd_api_client.models.arche_tuning_board_groups_inner import ArcheTuningBoardGroupsInner as ArcheTuningBoardGroupsInner
+from tfd_api_client.models.arche_tuning_boards_inner import ArcheTuningBoardsInner as ArcheTuningBoardsInner
+from tfd_api_client.models.arche_tuning_boards_inner_node_inner import ArcheTuningBoardsInnerNodeInner as ArcheTuningBoardsInnerNodeInner
+from tfd_api_client.models.arche_tuning_nodes_inner import ArcheTuningNodesInner as ArcheTuningNodesInner
+from tfd_api_client.models.arche_tuning_nodes_inner_node_effect_inner import ArcheTuningNodesInnerNodeEffectInner as ArcheTuningNodesInnerNodeEffectInner
+from tfd_api_client.models.consumable_materials_inner import ConsumableMaterialsInner as ConsumableMaterialsInner
+from tfd_api_client.models.core_slots_inner import CoreSlotsInner as CoreSlotsInner
+from tfd_api_client.models.core_types_inner import CoreTypesInner as CoreTypesInner
+from tfd_api_client.models.core_types_inner_core_option_inner import CoreTypesInnerCoreOptionInner as CoreTypesInnerCoreOptionInner
+from tfd_api_client.models.core_types_inner_core_option_inner_available_item_option_inner import CoreTypesInnerCoreOptionInnerAvailableItemOptionInner as CoreTypesInnerCoreOptionInnerAvailableItemOptionInner
+from tfd_api_client.models.core_types_inner_core_option_inner_available_item_option_inner_option_effect import CoreTypesInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect as CoreTypesInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect
+from tfd_api_client.models.core_types_inner_core_option_inner_detail_inner import CoreTypesInnerCoreOptionInnerDetailInner as CoreTypesInnerCoreOptionInnerDetailInner
+from tfd_api_client.models.core_types_inner_core_option_inner_detail_inner_required_core_item import CoreTypesInnerCoreOptionInnerDetailInnerRequiredCoreItem as CoreTypesInnerCoreOptionInnerDetailInnerRequiredCoreItem
+from tfd_api_client.models.customizing_items_inner import CustomizingItemsInner as CustomizingItemsInner
+from tfd_api_client.models.customizing_items_inner_customizing_item_evolution_stage_inner import CustomizingItemsInnerCustomizingItemEvolutionStageInner as CustomizingItemsInnerCustomizingItemEvolutionStageInner
+from tfd_api_client.models.descendant_groups_inner import DescendantGroupsInner as DescendantGroupsInner
+from tfd_api_client.models.descendant_level_details_inner import DescendantLevelDetailsInner as DescendantLevelDetailsInner
+from tfd_api_client.models.descendants_inner import DescendantsInner as DescendantsInner
+from tfd_api_client.models.descendants_inner_descendant_skill_inner import DescendantsInnerDescendantSkillInner as DescendantsInnerDescendantSkillInner
+from tfd_api_client.models.descendants_inner_descendant_stat_inner import DescendantsInnerDescendantStatInner as DescendantsInnerDescendantStatInner
+from tfd_api_client.models.descendants_inner_descendant_stat_inner_stat_detail_inner import DescendantsInnerDescendantStatInnerStatDetailInner as DescendantsInnerDescendantStatInnerStatDetailInner
 from tfd_api_client.models.error_message import ErrorMessage as ErrorMessage
 from tfd_api_client.models.error_message_error import ErrorMessageError as ErrorMessageError
-from tfd_api_client.models.external_component_response_inner import ExternalComponentResponseInner as ExternalComponentResponseInner
-from tfd_api_client.models.external_component_response_inner_base_stat_inner import ExternalComponentResponseInnerBaseStatInner as ExternalComponentResponseInnerBaseStatInner
-from tfd_api_client.models.external_component_response_inner_set_option_detail_inner import ExternalComponentResponseInnerSetOptionDetailInner as ExternalComponentResponseInnerSetOptionDetailInner
-from tfd_api_client.models.fellow_level_detail_response_inner import FellowLevelDetailResponseInner as FellowLevelDetailResponseInner
-from tfd_api_client.models.fellow_response_inner import FellowResponseInner as FellowResponseInner
-from tfd_api_client.models.fellow_response_inner_fellow_detail_inner import FellowResponseInnerFellowDetailInner as FellowResponseInnerFellowDetailInner
-from tfd_api_client.models.fellow_response_inner_fellow_detail_inner_stat_effect_inner import FellowResponseInnerFellowDetailInnerStatEffectInner as FellowResponseInnerFellowDetailInnerStatEffectInner
-from tfd_api_client.models.mastery_rank_level_detail_response_inner import MasteryRankLevelDetailResponseInner as MasteryRankLevelDetailResponseInner
-from tfd_api_client.models.medal_response_inner import MedalResponseInner as MedalResponseInner
-from tfd_api_client.models.medal_response_inner_medal_detail_inner import MedalResponseInnerMedalDetailInner as MedalResponseInnerMedalDetailInner
-from tfd_api_client.models.module_recommendation_response import ModuleRecommendationResponse as ModuleRecommendationResponse
-from tfd_api_client.models.module_recommendation_response_descendant import ModuleRecommendationResponseDescendant as ModuleRecommendationResponseDescendant
-from tfd_api_client.models.module_recommendation_response_descendant_recommendation_inner import ModuleRecommendationResponseDescendantRecommendationInner as ModuleRecommendationResponseDescendantRecommendationInner
-from tfd_api_client.models.module_recommendation_response_weapon import ModuleRecommendationResponseWeapon as ModuleRecommendationResponseWeapon
-from tfd_api_client.models.module_response_inner import ModuleResponseInner as ModuleResponseInner
-from tfd_api_client.models.module_response_inner_module_stat_inner import ModuleResponseInnerModuleStatInner as ModuleResponseInnerModuleStatInner
-from tfd_api_client.models.reactor_response_inner import ReactorResponseInner as ReactorResponseInner
-from tfd_api_client.models.reactor_response_inner_reactor_skill_power_inner import ReactorResponseInnerReactorSkillPowerInner as ReactorResponseInnerReactorSkillPowerInner
-from tfd_api_client.models.reactor_response_inner_reactor_skill_power_inner_enchant_effect_inner import ReactorResponseInnerReactorSkillPowerInnerEnchantEffectInner as ReactorResponseInnerReactorSkillPowerInnerEnchantEffectInner
-from tfd_api_client.models.reactor_response_inner_reactor_skill_power_inner_skill_power_coefficient_inner import ReactorResponseInnerReactorSkillPowerInnerSkillPowerCoefficientInner as ReactorResponseInnerReactorSkillPowerInnerSkillPowerCoefficientInner
-from tfd_api_client.models.research_response_inner import ResearchResponseInner as ResearchResponseInner
-from tfd_api_client.models.research_response_inner_research_cost_inner import ResearchResponseInnerResearchCostInner as ResearchResponseInnerResearchCostInner
-from tfd_api_client.models.research_response_inner_research_material_inner import ResearchResponseInnerResearchMaterialInner as ResearchResponseInnerResearchMaterialInner
-from tfd_api_client.models.research_response_inner_research_result_inner import ResearchResponseInnerResearchResultInner as ResearchResponseInnerResearchResultInner
-from tfd_api_client.models.reward_response_inner import RewardResponseInner as RewardResponseInner
-from tfd_api_client.models.reward_response_inner_battle_zone_inner import RewardResponseInnerBattleZoneInner as RewardResponseInnerBattleZoneInner
-from tfd_api_client.models.reward_response_inner_battle_zone_inner_reward_inner import RewardResponseInnerBattleZoneInnerRewardInner as RewardResponseInnerBattleZoneInnerRewardInner
-from tfd_api_client.models.stat_response_inner import StatResponseInner as StatResponseInner
-from tfd_api_client.models.tier_response_inner import TierResponseInner as TierResponseInner
-from tfd_api_client.models.title_response_inner import TitleResponseInner as TitleResponseInner
+from tfd_api_client.models.external_components_inner import ExternalComponentsInner as ExternalComponentsInner
+from tfd_api_client.models.external_components_inner_base_stat_inner import ExternalComponentsInnerBaseStatInner as ExternalComponentsInnerBaseStatInner
+from tfd_api_client.models.external_components_inner_set_option_detail_inner import ExternalComponentsInnerSetOptionDetailInner as ExternalComponentsInnerSetOptionDetailInner
+from tfd_api_client.models.fellow_level_details_inner import FellowLevelDetailsInner as FellowLevelDetailsInner
+from tfd_api_client.models.fellows_inner import FellowsInner as FellowsInner
+from tfd_api_client.models.fellows_inner_fellow_detail_inner import FellowsInnerFellowDetailInner as FellowsInnerFellowDetailInner
+from tfd_api_client.models.fellows_inner_fellow_detail_inner_stat_effect_inner import FellowsInnerFellowDetailInnerStatEffectInner as FellowsInnerFellowDetailInnerStatEffectInner
+from tfd_api_client.models.mastery_rank_level_details_inner import MasteryRankLevelDetailsInner as MasteryRankLevelDetailsInner
+from tfd_api_client.models.medals_inner import MedalsInner as MedalsInner
+from tfd_api_client.models.medals_inner_medal_detail_inner import MedalsInnerMedalDetailInner as MedalsInnerMedalDetailInner
+from tfd_api_client.models.module_recommendations import ModuleRecommendations as ModuleRecommendations
+from tfd_api_client.models.module_recommendations_descendant import ModuleRecommendationsDescendant as ModuleRecommendationsDescendant
+from tfd_api_client.models.module_recommendations_descendant_recommendation_inner import ModuleRecommendationsDescendantRecommendationInner as ModuleRecommendationsDescendantRecommendationInner
+from tfd_api_client.models.module_recommendations_weapon import ModuleRecommendationsWeapon as ModuleRecommendationsWeapon
+from tfd_api_client.models.modules_inner import ModulesInner as ModulesInner
+from tfd_api_client.models.modules_inner_module_stat_inner import ModulesInnerModuleStatInner as ModulesInnerModuleStatInner
+from tfd_api_client.models.reactors_inner import ReactorsInner as ReactorsInner
+from tfd_api_client.models.reactors_inner_reactor_skill_power_inner import ReactorsInnerReactorSkillPowerInner as ReactorsInnerReactorSkillPowerInner
+from tfd_api_client.models.reactors_inner_reactor_skill_power_inner_enchant_effect_inner import ReactorsInnerReactorSkillPowerInnerEnchantEffectInner as ReactorsInnerReactorSkillPowerInnerEnchantEffectInner
+from tfd_api_client.models.reactors_inner_reactor_skill_power_inner_skill_power_coefficient_inner import ReactorsInnerReactorSkillPowerInnerSkillPowerCoefficientInner as ReactorsInnerReactorSkillPowerInnerSkillPowerCoefficientInner
+from tfd_api_client.models.research_inner import ResearchInner as ResearchInner
+from tfd_api_client.models.research_inner_research_cost_inner import ResearchInnerResearchCostInner as ResearchInnerResearchCostInner
+from tfd_api_client.models.research_inner_research_material_inner import ResearchInnerResearchMaterialInner as ResearchInnerResearchMaterialInner
+from tfd_api_client.models.research_inner_research_result_inner import ResearchInnerResearchResultInner as ResearchInnerResearchResultInner
+from tfd_api_client.models.rewards_inner import RewardsInner as RewardsInner
+from tfd_api_client.models.rewards_inner_battle_zone_inner import RewardsInnerBattleZoneInner as RewardsInnerBattleZoneInner
+from tfd_api_client.models.rewards_inner_battle_zone_inner_reward_inner import RewardsInnerBattleZoneInnerRewardInner as RewardsInnerBattleZoneInnerRewardInner
+from tfd_api_client.models.stats_inner import StatsInner as StatsInner
+from tfd_api_client.models.tiers_inner import TiersInner as TiersInner
+from tfd_api_client.models.titles_inner import TitlesInner as TitlesInner
 from tfd_api_client.models.user import User as User
 from tfd_api_client.models.user_arche_tuning import UserArcheTuning as UserArcheTuning
 from tfd_api_client.models.user_arche_tuning_arche_tuning_inner import UserArcheTuningArcheTuningInner as UserArcheTuningArcheTuningInner
@@ -211,9 +211,9 @@ from tfd_api_client.models.user_weapon import UserWeapon as UserWeapon
 from tfd_api_client.models.user_weapon_weapon_inner import UserWeaponWeaponInner as UserWeaponWeaponInner
 from tfd_api_client.models.user_weapon_weapon_inner_core_inner import UserWeaponWeaponInnerCoreInner as UserWeaponWeaponInnerCoreInner
 from tfd_api_client.models.user_weapon_weapon_inner_weapon_additional_stat_inner import UserWeaponWeaponInnerWeaponAdditionalStatInner as UserWeaponWeaponInnerWeaponAdditionalStatInner
-from tfd_api_client.models.void_battle_response_inner import VoidBattleResponseInner as VoidBattleResponseInner
-from tfd_api_client.models.weapon_response_inner import WeaponResponseInner as WeaponResponseInner
-from tfd_api_client.models.weapon_response_inner_base_stat_inner import WeaponResponseInnerBaseStatInner as WeaponResponseInnerBaseStatInner
-from tfd_api_client.models.weapon_response_inner_firearm_atk_inner import WeaponResponseInnerFirearmAtkInner as WeaponResponseInnerFirearmAtkInner
-from tfd_api_client.models.weapon_response_inner_firearm_atk_inner_firearm_inner import WeaponResponseInnerFirearmAtkInnerFirearmInner as WeaponResponseInnerFirearmAtkInnerFirearmInner
-from tfd_api_client.models.weapon_type_response_inner import WeaponTypeResponseInner as WeaponTypeResponseInner
+from tfd_api_client.models.void_battles_inner import VoidBattlesInner as VoidBattlesInner
+from tfd_api_client.models.weapon_types_inner import WeaponTypesInner as WeaponTypesInner
+from tfd_api_client.models.weapons_inner import WeaponsInner as WeaponsInner
+from tfd_api_client.models.weapons_inner_base_stat_inner import WeaponsInnerBaseStatInner as WeaponsInnerBaseStatInner
+from tfd_api_client.models.weapons_inner_firearm_atk_inner import WeaponsInnerFirearmAtkInner as WeaponsInnerFirearmAtkInner
+from tfd_api_client.models.weapons_inner_firearm_atk_inner_firearm_inner import WeaponsInnerFirearmAtkInnerFirearmInner as WeaponsInnerFirearmAtkInnerFirearmInner

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **tfd_v1_recommendation_module_get**
-> ModuleRecommendationResponse tfd_v1_recommendation_module_get(x_nxopen_api_key, descendant_id, weapon_id, void_battle_id, period)
+> ModuleRecommendations tfd_v1_recommendation_module_get(x_nxopen_api_key, descendant_id, weapon_id, void_battle_id, period)
 
 Module recommendation
 
@@ -19,7 +19,7 @@ Recommends modules suited to the user.
 
 ```python
 import tfd_api_client
-from tfd_api_client.models.module_recommendation_response import ModuleRecommendationResponse
+from tfd_api_client.models.module_recommendations import ModuleRecommendations
 from tfd_api_client.rest import ApiException
 from pprint import pprint
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModuleRecommendationResponse**](ModuleRecommendationResponse.md)
+[**ModuleRecommendations**](ModuleRecommendations.md)
 
 ### Authorization
 

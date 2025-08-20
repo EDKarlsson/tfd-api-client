@@ -45,7 +45,296 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_arche_tuning(
+    def get_id(
+        self,
+        x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
+        user_name: Annotated[StrictStr, Field(description="Nickname")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> User:
+        """Retrieve account identifier (OUID)
+
+        Retrieves the account identifier (OUID).
+
+        :param x_nxopen_api_key: API KEY (required)
+        :type x_nxopen_api_key: str
+        :param user_name: Nickname (required)
+        :type user_name: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_id_serialize(
+            x_nxopen_api_key=x_nxopen_api_key,
+            user_name=user_name,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "User",
+            '400': "ErrorMessage",
+            '403': "ErrorMessage",
+            '429': "ErrorMessage",
+            '500': "ErrorMessage",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_id_with_http_info(
+        self,
+        x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
+        user_name: Annotated[StrictStr, Field(description="Nickname")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[User]:
+        """Retrieve account identifier (OUID)
+
+        Retrieves the account identifier (OUID).
+
+        :param x_nxopen_api_key: API KEY (required)
+        :type x_nxopen_api_key: str
+        :param user_name: Nickname (required)
+        :type user_name: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_id_serialize(
+            x_nxopen_api_key=x_nxopen_api_key,
+            user_name=user_name,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "User",
+            '400': "ErrorMessage",
+            '403': "ErrorMessage",
+            '429': "ErrorMessage",
+            '500': "ErrorMessage",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_id_without_preload_content(
+        self,
+        x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
+        user_name: Annotated[StrictStr, Field(description="Nickname")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve account identifier (OUID)
+
+        Retrieves the account identifier (OUID).
+
+        :param x_nxopen_api_key: API KEY (required)
+        :type x_nxopen_api_key: str
+        :param user_name: Nickname (required)
+        :type user_name: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_id_serialize(
+            x_nxopen_api_key=x_nxopen_api_key,
+            user_name=user_name,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "User",
+            '400': "ErrorMessage",
+            '403': "ErrorMessage",
+            '429': "ErrorMessage",
+            '500': "ErrorMessage",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_id_serialize(
+        self,
+        x_nxopen_api_key,
+        user_name,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if user_name is not None:
+            
+            _query_params.append(('user_name', user_name))
+            
+        # process the header parameters
+        if x_nxopen_api_key is not None:
+            _header_params['x-nxopen-api-key'] = x_nxopen_api_key
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/tfd/v1/id',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_user_arche_tuning(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="Account identifier")],
@@ -95,7 +384,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_arche_tuning_serialize(
+        _param = self._get_user_arche_tuning_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             descendant_group_id=descendant_group_id,
@@ -124,7 +413,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_arche_tuning_with_http_info(
+    def get_user_arche_tuning_with_http_info(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="Account identifier")],
@@ -174,7 +463,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_arche_tuning_serialize(
+        _param = self._get_user_arche_tuning_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             descendant_group_id=descendant_group_id,
@@ -203,7 +492,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_arche_tuning_without_preload_content(
+    def get_user_arche_tuning_without_preload_content(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="Account identifier")],
@@ -253,7 +542,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_arche_tuning_serialize(
+        _param = self._get_user_arche_tuning_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             descendant_group_id=descendant_group_id,
@@ -277,7 +566,7 @@ class UserApi:
         return response_data.response
 
 
-    def _thefirstdescendant_get_user_arche_tuning_serialize(
+    def _get_user_arche_tuning_serialize(
         self,
         x_nxopen_api_key,
         ouid,
@@ -351,7 +640,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_basic(
+    def get_user_basic(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="OUID")],
@@ -398,7 +687,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_basic_serialize(
+        _param = self._get_user_basic_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             _request_auth=_request_auth,
@@ -426,7 +715,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_basic_with_http_info(
+    def get_user_basic_with_http_info(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="OUID")],
@@ -473,7 +762,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_basic_serialize(
+        _param = self._get_user_basic_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             _request_auth=_request_auth,
@@ -501,7 +790,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_basic_without_preload_content(
+    def get_user_basic_without_preload_content(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="OUID")],
@@ -548,7 +837,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_basic_serialize(
+        _param = self._get_user_basic_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             _request_auth=_request_auth,
@@ -571,7 +860,7 @@ class UserApi:
         return response_data.response
 
 
-    def _thefirstdescendant_get_user_basic_serialize(
+    def _get_user_basic_serialize(
         self,
         x_nxopen_api_key,
         ouid,
@@ -640,7 +929,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_descendant(
+    def get_user_descendant(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="OUID")],
@@ -687,7 +976,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_descendant_serialize(
+        _param = self._get_user_descendant_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             _request_auth=_request_auth,
@@ -715,7 +1004,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_descendant_with_http_info(
+    def get_user_descendant_with_http_info(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="OUID")],
@@ -762,7 +1051,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_descendant_serialize(
+        _param = self._get_user_descendant_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             _request_auth=_request_auth,
@@ -790,7 +1079,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_descendant_without_preload_content(
+    def get_user_descendant_without_preload_content(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         ouid: Annotated[StrictStr, Field(description="OUID")],
@@ -837,7 +1126,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_descendant_serialize(
+        _param = self._get_user_descendant_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             ouid=ouid,
             _request_auth=_request_auth,
@@ -860,7 +1149,7 @@ class UserApi:
         return response_data.response
 
 
-    def _thefirstdescendant_get_user_descendant_serialize(
+    def _get_user_descendant_serialize(
         self,
         x_nxopen_api_key,
         ouid,
@@ -929,7 +1218,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_external_component(
+    def get_user_external_component(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -979,7 +1268,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_external_component_serialize(
+        _param = self._get_user_external_component_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1008,7 +1297,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_external_component_with_http_info(
+    def get_user_external_component_with_http_info(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -1058,7 +1347,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_external_component_serialize(
+        _param = self._get_user_external_component_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1087,7 +1376,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_external_component_without_preload_content(
+    def get_user_external_component_without_preload_content(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -1137,7 +1426,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_external_component_serialize(
+        _param = self._get_user_external_component_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1161,7 +1450,7 @@ class UserApi:
         return response_data.response
 
 
-    def _thefirstdescendant_get_user_external_component_serialize(
+    def _get_user_external_component_serialize(
         self,
         x_nxopen_api_key,
         language_code,
@@ -1235,296 +1524,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_id(
-        self,
-        x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
-        user_name: Annotated[StrictStr, Field(description="Nickname")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> User:
-        """Retrieve account identifier (OUID)
-
-        Retrieves the account identifier (OUID).
-
-        :param x_nxopen_api_key: API KEY (required)
-        :type x_nxopen_api_key: str
-        :param user_name: Nickname (required)
-        :type user_name: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._thefirstdescendant_get_user_id_serialize(
-            x_nxopen_api_key=x_nxopen_api_key,
-            user_name=user_name,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "User",
-            '400': "ErrorMessage",
-            '403': "ErrorMessage",
-            '429': "ErrorMessage",
-            '500': "ErrorMessage",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def thefirstdescendant_get_user_id_with_http_info(
-        self,
-        x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
-        user_name: Annotated[StrictStr, Field(description="Nickname")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[User]:
-        """Retrieve account identifier (OUID)
-
-        Retrieves the account identifier (OUID).
-
-        :param x_nxopen_api_key: API KEY (required)
-        :type x_nxopen_api_key: str
-        :param user_name: Nickname (required)
-        :type user_name: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._thefirstdescendant_get_user_id_serialize(
-            x_nxopen_api_key=x_nxopen_api_key,
-            user_name=user_name,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "User",
-            '400': "ErrorMessage",
-            '403': "ErrorMessage",
-            '429': "ErrorMessage",
-            '500': "ErrorMessage",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def thefirstdescendant_get_user_id_without_preload_content(
-        self,
-        x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
-        user_name: Annotated[StrictStr, Field(description="Nickname")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Retrieve account identifier (OUID)
-
-        Retrieves the account identifier (OUID).
-
-        :param x_nxopen_api_key: API KEY (required)
-        :type x_nxopen_api_key: str
-        :param user_name: Nickname (required)
-        :type user_name: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._thefirstdescendant_get_user_id_serialize(
-            x_nxopen_api_key=x_nxopen_api_key,
-            user_name=user_name,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "User",
-            '400': "ErrorMessage",
-            '403': "ErrorMessage",
-            '429': "ErrorMessage",
-            '500': "ErrorMessage",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _thefirstdescendant_get_user_id_serialize(
-        self,
-        x_nxopen_api_key,
-        user_name,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if user_name is not None:
-            
-            _query_params.append(('user_name', user_name))
-            
-        # process the header parameters
-        if x_nxopen_api_key is not None:
-            _header_params['x-nxopen-api-key'] = x_nxopen_api_key
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/tfd/v1/id',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def thefirstdescendant_get_user_reactor(
+    def get_user_reactor(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -1574,7 +1574,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_reactor_serialize(
+        _param = self._get_user_reactor_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1603,7 +1603,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_reactor_with_http_info(
+    def get_user_reactor_with_http_info(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -1653,7 +1653,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_reactor_serialize(
+        _param = self._get_user_reactor_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1682,7 +1682,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_reactor_without_preload_content(
+    def get_user_reactor_without_preload_content(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -1732,7 +1732,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_reactor_serialize(
+        _param = self._get_user_reactor_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1756,7 +1756,7 @@ class UserApi:
         return response_data.response
 
 
-    def _thefirstdescendant_get_user_reactor_serialize(
+    def _get_user_reactor_serialize(
         self,
         x_nxopen_api_key,
         language_code,
@@ -1830,7 +1830,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_weapon(
+    def get_user_weapon(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -1880,7 +1880,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_weapon_serialize(
+        _param = self._get_user_weapon_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1909,7 +1909,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_weapon_with_http_info(
+    def get_user_weapon_with_http_info(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -1959,7 +1959,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_weapon_serialize(
+        _param = self._get_user_weapon_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -1988,7 +1988,7 @@ class UserApi:
 
 
     @validate_call
-    def thefirstdescendant_get_user_weapon_without_preload_content(
+    def get_user_weapon_without_preload_content(
         self,
         x_nxopen_api_key: Annotated[StrictStr, Field(description="API KEY")],
         language_code: Annotated[StrictStr, Field(description="language code")],
@@ -2038,7 +2038,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._thefirstdescendant_get_user_weapon_serialize(
+        _param = self._get_user_weapon_serialize(
             x_nxopen_api_key=x_nxopen_api_key,
             language_code=language_code,
             ouid=ouid,
@@ -2062,7 +2062,7 @@ class UserApi:
         return response_data.response
 
 
-    def _thefirstdescendant_get_user_weapon_serialize(
+    def _get_user_weapon_serialize(
         self,
         x_nxopen_api_key,
         language_code,

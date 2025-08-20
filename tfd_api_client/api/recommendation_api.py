@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr, field_validator
 from typing_extensions import Annotated
-from tfd_api_client.models.module_recommendation_response import ModuleRecommendationResponse
+from tfd_api_client.models.module_recommendations import ModuleRecommendations
 
 from tfd_api_client.api_client import ApiClient, RequestSerialized
 from tfd_api_client.api_response import ApiResponse
@@ -58,7 +58,7 @@ class RecommendationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModuleRecommendationResponse:
+    ) -> ModuleRecommendations:
         """Module recommendation
 
         Recommends modules suited to the user.
@@ -108,7 +108,7 @@ class RecommendationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModuleRecommendationResponse",
+            '200': "ModuleRecommendations",
             '400': "ErrorMessage",
             '403': "ErrorMessage",
             '429': "ErrorMessage",
@@ -145,7 +145,7 @@ class RecommendationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModuleRecommendationResponse]:
+    ) -> ApiResponse[ModuleRecommendations]:
         """Module recommendation
 
         Recommends modules suited to the user.
@@ -195,7 +195,7 @@ class RecommendationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModuleRecommendationResponse",
+            '200': "ModuleRecommendations",
             '400': "ErrorMessage",
             '403': "ErrorMessage",
             '429': "ErrorMessage",
@@ -282,7 +282,7 @@ class RecommendationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModuleRecommendationResponse",
+            '200': "ModuleRecommendations",
             '400': "ErrorMessage",
             '403': "ErrorMessage",
             '429': "ErrorMessage",

@@ -4,6 +4,7 @@ version = "1.0.0"
 description = "The First Descendant API"
 authors = [
   {name = "help_openapi@nexon.co.kr",email = "team@openapitools.org"},
+  {name = "Dan Karlsson"},
 ]
 license = "NoLicense"
 readme = "README.md"

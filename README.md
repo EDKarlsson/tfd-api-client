@@ -56,7 +56,6 @@ Execute `pytest` to run the tests.
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-
 import tfd_api_client
 from tfd_api_client.rest import ApiException
 from pprint import pprint
@@ -67,21 +66,19 @@ configuration = tfd_api_client.Configuration(
     host = "https://open.api.nexon.com"
 )
 
-
-
 # Enter a context with an instance of the API client
 with tfd_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tfd_api_client.MetadataApi(api_client)
+    language_code = 'language_code_example' # str | language code
 
     try:
-        # Retrieve adaptability level metadata
-        api_response = api_instance.static_tfd_meta_adapt_level_json_get()
-        print("The response of MetadataApi->static_tfd_meta_adapt_level_json_get:\n")
+        # Retrieve acquisition source info metadata
+        api_response = api_instance.get_meta_acquisition_details(language_code)
+        print("The response of MetadataApi->get_meta_acquisition_details:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MetadataApi->static_tfd_meta_adapt_level_json_get: %s\n" % e)
-
+        print("Exception when calling MetadataApi->get_meta_acquisition_details: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -90,105 +87,105 @@ All URIs are relative to *<https://open.api.nexon.com>*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*MetadataApi* | [**static_tfd_meta_adapt_level_json_get**](docs/MetadataApi.md#static_tfd_meta_adapt_level_json_get) | **GET** /static/tfd/meta/adapt-level.json | Retrieve adaptability level metadata
-*MetadataApi* | [**static_tfd_meta_amorphous_reward_json_get**](docs/MetadataApi.md#static_tfd_meta_amorphous_reward_json_get) | **GET** /static/tfd/meta/amorphous-reward.json | Retrieve Amorphous Material open reward metadata
-*MetadataApi* | [**static_tfd_meta_arche_tuning_board_group_json_get**](docs/MetadataApi.md#static_tfd_meta_arche_tuning_board_group_json_get) | **GET** /static/tfd/meta/arche-tuning-board-group.json | Retrieve Arche tuning board group metadata
-*MetadataApi* | [**static_tfd_meta_arche_tuning_board_json_get**](docs/MetadataApi.md#static_tfd_meta_arche_tuning_board_json_get) | **GET** /static/tfd/meta/arche-tuning-board.json | Retrieve Arche tuning board metadata
-*MetadataApi* | [**static_tfd_meta_core_slot_json_get**](docs/MetadataApi.md#static_tfd_meta_core_slot_json_get) | **GET** /static/tfd/meta/core-slot.json | Retrieve core slot metadata
-*MetadataApi* | [**static_tfd_meta_descendant_level_detail_json_get**](docs/MetadataApi.md#static_tfd_meta_descendant_level_detail_json_get) | **GET** /static/tfd/meta/descendant-level-detail.json | Retrieve EXP metadata by descendant level
-*MetadataApi* | [**static_tfd_meta_fellow_level_detail_json_get**](docs/MetadataApi.md#static_tfd_meta_fellow_level_detail_json_get) | **GET** /static/tfd/meta/fellow-level-detail.json | Retrieve EXP metadata by fellow level
-*MetadataApi* | [**static_tfd_meta_language_code_acquisition_detail_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_acquisition_detail_json_get) | **GET** /static/tfd/meta/{language_code}/acquisition-detail.json | Retrieve acquisition source info metadata
-*MetadataApi* | [**static_tfd_meta_language_code_amorphous_open_condition_description_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_amorphous_open_condition_description_json_get) | **GET** /static/tfd/meta/{language_code}/amorphous-open-condition-description.json | Retrieve Amorphous Material opening location metadata
-*MetadataApi* | [**static_tfd_meta_language_code_arche_tuning_node_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_arche_tuning_node_json_get) | **GET** /static/tfd/meta/{language_code}/arche-tuning-node.json | Retrieve Arche tuning node metadata
-*MetadataApi* | [**static_tfd_meta_language_code_consumable_material_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_consumable_material_json_get) | **GET** /static/tfd/meta/{language_code}/consumable-material.json | Retrieve consumable items metadata
-*MetadataApi* | [**static_tfd_meta_language_code_core_type_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_core_type_json_get) | **GET** /static/tfd/meta/{language_code}/core-type.json | Retrieve core type metadata
-*MetadataApi* | [**static_tfd_meta_language_code_customizing_item_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_customizing_item_json_get) | **GET** /static/tfd/meta/{language_code}/customizing-item.json | Retrieve customization item metadata
-*MetadataApi* | [**static_tfd_meta_language_code_descendant_group_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_descendant_group_json_get) | **GET** /static/tfd/meta/{language_code}/descendant-group.json | Retrieve descendant group metadata
-*MetadataApi* | [**static_tfd_meta_language_code_descendant_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_descendant_json_get) | **GET** /static/tfd/meta/{language_code}/descendant.json | Retrieve descendant metadata
-*MetadataApi* | [**static_tfd_meta_language_code_external_component_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_external_component_json_get) | **GET** /static/tfd/meta/{language_code}/external-component.json | Retrieve external component metadata
-*MetadataApi* | [**static_tfd_meta_language_code_fellow_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_fellow_json_get) | **GET** /static/tfd/meta/{language_code}/fellow.json | Retrieve fellow metadata
-*MetadataApi* | [**static_tfd_meta_language_code_medal_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_medal_json_get) | **GET** /static/tfd/meta/{language_code}/medal.json | Retrieve medal meta data
-*MetadataApi* | [**static_tfd_meta_language_code_module_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_module_json_get) | **GET** /static/tfd/meta/{language_code}/module.json | Retrieve module metadata
-*MetadataApi* | [**static_tfd_meta_language_code_reactor_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_reactor_json_get) | **GET** /static/tfd/meta/{language_code}/reactor.json | Retrieve Reactor metadata
+*MetadataApi* | [**get_meta_acquisition_details**](docs/MetadataApi.md#get_meta_acquisition_details) | **GET** /static/tfd/meta/{language_code}/acquisition-detail.json | Retrieve acquisition source info metadata
+*MetadataApi* | [**get_meta_adapt_levels**](docs/MetadataApi.md#get_meta_adapt_levels) | **GET** /static/tfd/meta/adapt-level.json | Retrieve adaptability level metadata
+*MetadataApi* | [**get_meta_amorphous_open_condition_descriptions**](docs/MetadataApi.md#get_meta_amorphous_open_condition_descriptions) | **GET** /static/tfd/meta/{language_code}/amorphous-open-condition-description.json | Retrieve Amorphous Material opening location metadata
+*MetadataApi* | [**get_meta_amorphous_rewards**](docs/MetadataApi.md#get_meta_amorphous_rewards) | **GET** /static/tfd/meta/amorphous-reward.json | Retrieve Amorphous Material open reward metadata
+*MetadataApi* | [**get_meta_arche_tuning_board_groups**](docs/MetadataApi.md#get_meta_arche_tuning_board_groups) | **GET** /static/tfd/meta/arche-tuning-board-group.json | Retrieve Arche tuning board group metadata
+*MetadataApi* | [**get_meta_arche_tuning_boards**](docs/MetadataApi.md#get_meta_arche_tuning_boards) | **GET** /static/tfd/meta/arche-tuning-board.json | Retrieve Arche tuning board metadata
+*MetadataApi* | [**get_meta_arche_tuning_nodes**](docs/MetadataApi.md#get_meta_arche_tuning_nodes) | **GET** /static/tfd/meta/{language_code}/arche-tuning-node.json | Retrieve Arche tuning node metadata
+*MetadataApi* | [**get_meta_consumable_materials**](docs/MetadataApi.md#get_meta_consumable_materials) | **GET** /static/tfd/meta/{language_code}/consumable-material.json | Retrieve consumable items metadata
+*MetadataApi* | [**get_meta_core_slots**](docs/MetadataApi.md#get_meta_core_slots) | **GET** /static/tfd/meta/core-slot.json | Retrieve core slot metadata
+*MetadataApi* | [**get_meta_core_types**](docs/MetadataApi.md#get_meta_core_types) | **GET** /static/tfd/meta/{language_code}/core-type.json | Retrieve core type metadata
+*MetadataApi* | [**get_meta_customizing_items**](docs/MetadataApi.md#get_meta_customizing_items) | **GET** /static/tfd/meta/{language_code}/customizing-item.json | Retrieve customization item metadata
+*MetadataApi* | [**get_meta_descendant_groups**](docs/MetadataApi.md#get_meta_descendant_groups) | **GET** /static/tfd/meta/{language_code}/descendant-group.json | Retrieve descendant group metadata
+*MetadataApi* | [**get_meta_descendant_level_details**](docs/MetadataApi.md#get_meta_descendant_level_details) | **GET** /static/tfd/meta/descendant-level-detail.json | Retrieve EXP metadata by descendant level
+*MetadataApi* | [**get_meta_descendants**](docs/MetadataApi.md#get_meta_descendants) | **GET** /static/tfd/meta/{language_code}/descendant.json | Retrieve descendant metadata
+*MetadataApi* | [**get_meta_external_components**](docs/MetadataApi.md#get_meta_external_components) | **GET** /static/tfd/meta/{language_code}/external-component.json | Retrieve external component metadata
+*MetadataApi* | [**get_meta_fellow_level_details**](docs/MetadataApi.md#get_meta_fellow_level_details) | **GET** /static/tfd/meta/fellow-level-detail.json | Retrieve EXP metadata by fellow level
+*MetadataApi* | [**get_meta_fellows**](docs/MetadataApi.md#get_meta_fellows) | **GET** /static/tfd/meta/{language_code}/fellow.json | Retrieve fellow metadata
+*MetadataApi* | [**get_meta_mastery_rank_level_details**](docs/MetadataApi.md#get_meta_mastery_rank_level_details) | **GET** /static/tfd/meta/mastery-rank-level-detail.json | Retrieve EXP metadata by Mastery Rank
+*MetadataApi* | [**get_meta_medals**](docs/MetadataApi.md#get_meta_medals) | **GET** /static/tfd/meta/{language_code}/medal.json | Retrieve medal meta data
+*MetadataApi* | [**get_meta_modules**](docs/MetadataApi.md#get_meta_modules) | **GET** /static/tfd/meta/{language_code}/module.json | Retrieve module metadata
+*MetadataApi* | [**get_meta_reactors**](docs/MetadataApi.md#get_meta_reactors) | **GET** /static/tfd/meta/{language_code}/reactor.json | Retrieve Reactor metadata
+*MetadataApi* | [**get_meta_rewards**](docs/MetadataApi.md#get_meta_rewards) | **GET** /static/tfd/meta/{language_code}/reward.json | Retrieve Difficulty Level Rewards metadata
+*MetadataApi* | [**get_meta_stats**](docs/MetadataApi.md#get_meta_stats) | **GET** /static/tfd/meta/{language_code}/stat.json | Retrieve base stat metadata
+*MetadataApi* | [**get_meta_tiers**](docs/MetadataApi.md#get_meta_tiers) | **GET** /static/tfd/meta/{language_code}/tier.json | Retrieve tier metadata
+*MetadataApi* | [**get_meta_titles**](docs/MetadataApi.md#get_meta_titles) | **GET** /static/tfd/meta/{language_code}/title.json | Retrieve Title metadata
+*MetadataApi* | [**get_meta_void_battles**](docs/MetadataApi.md#get_meta_void_battles) | **GET** /static/tfd/meta/{language_code}/void-battle.json | Retrieve Void Intercept Battle metadata
+*MetadataApi* | [**get_meta_weapon_types**](docs/MetadataApi.md#get_meta_weapon_types) | **GET** /static/tfd/meta/{language_code}/weapon-type.json | Retrieve weapon type metadata
+*MetadataApi* | [**get_meta_weapons**](docs/MetadataApi.md#get_meta_weapons) | **GET** /static/tfd/meta/{language_code}/weapon.json | Retrieve weapon metadata
 *MetadataApi* | [**static_tfd_meta_language_code_research_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_research_json_get) | **GET** /static/tfd/meta/{language_code}/research.json | Retrieve research info metadata
-*MetadataApi* | [**static_tfd_meta_language_code_reward_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_reward_json_get) | **GET** /static/tfd/meta/{language_code}/reward.json | Retrieve Difficulty Level Rewards metadata
-*MetadataApi* | [**static_tfd_meta_language_code_stat_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_stat_json_get) | **GET** /static/tfd/meta/{language_code}/stat.json | Retrieve base stat metadata
-*MetadataApi* | [**static_tfd_meta_language_code_tier_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_tier_json_get) | **GET** /static/tfd/meta/{language_code}/tier.json | Retrieve tier metadata
-*MetadataApi* | [**static_tfd_meta_language_code_title_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_title_json_get) | **GET** /static/tfd/meta/{language_code}/title.json | Retrieve Title metadata
-*MetadataApi* | [**static_tfd_meta_language_code_void_battle_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_void_battle_json_get) | **GET** /static/tfd/meta/{language_code}/void-battle.json | Retrieve Void Intercept Battle metadata
-*MetadataApi* | [**static_tfd_meta_language_code_weapon_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_weapon_json_get) | **GET** /static/tfd/meta/{language_code}/weapon.json | Retrieve weapon metadata
-*MetadataApi* | [**static_tfd_meta_language_code_weapon_type_json_get**](docs/MetadataApi.md#static_tfd_meta_language_code_weapon_type_json_get) | **GET** /static/tfd/meta/{language_code}/weapon-type.json | Retrieve weapon type metadata
-*MetadataApi* | [**static_tfd_meta_mastery_rank_level_detail_json_get**](docs/MetadataApi.md#static_tfd_meta_mastery_rank_level_detail_json_get) | **GET** /static/tfd/meta/mastery-rank-level-detail.json | Retrieve EXP metadata by Mastery Rank
 *RecommendationApi* | [**tfd_v1_recommendation_module_get**](docs/RecommendationApi.md#tfd_v1_recommendation_module_get) | **GET** /tfd/v1/recommendation/module | Module recommendation
-*UserApi* | [**thefirstdescendant_get_user_arche_tuning**](docs/UserApi.md#thefirstdescendant_get_user_arche_tuning) | **GET** /tfd/v1/user/arche-tuning | Retrieve Arche tuning information
-*UserApi* | [**thefirstdescendant_get_user_basic**](docs/UserApi.md#thefirstdescendant_get_user_basic) | **GET** /tfd/v1/user/basic | Retrieve basic information
-*UserApi* | [**thefirstdescendant_get_user_descendant**](docs/UserApi.md#thefirstdescendant_get_user_descendant) | **GET** /tfd/v1/user/descendant | Retrieve equipped descendant information
-*UserApi* | [**thefirstdescendant_get_user_external_component**](docs/UserApi.md#thefirstdescendant_get_user_external_component) | **GET** /tfd/v1/user/external-component | Retrieve equipped external component information
-*UserApi* | [**thefirstdescendant_get_user_id**](docs/UserApi.md#thefirstdescendant_get_user_id) | **GET** /tfd/v1/id | Retrieve account identifier (OUID)
-*UserApi* | [**thefirstdescendant_get_user_reactor**](docs/UserApi.md#thefirstdescendant_get_user_reactor) | **GET** /tfd/v1/user/reactor | Retrieve equipped Reactor information
-*UserApi* | [**thefirstdescendant_get_user_weapon**](docs/UserApi.md#thefirstdescendant_get_user_weapon) | **GET** /tfd/v1/user/weapon | Retrieve equipped weapon information
+*UserApi* | [**get_id**](docs/UserApi.md#get_id) | **GET** /tfd/v1/id | Retrieve account identifier (OUID)
+*UserApi* | [**get_user_arche_tuning**](docs/UserApi.md#get_user_arche_tuning) | **GET** /tfd/v1/user/arche-tuning | Retrieve Arche tuning information
+*UserApi* | [**get_user_basic**](docs/UserApi.md#get_user_basic) | **GET** /tfd/v1/user/basic | Retrieve basic information
+*UserApi* | [**get_user_descendant**](docs/UserApi.md#get_user_descendant) | **GET** /tfd/v1/user/descendant | Retrieve equipped descendant information
+*UserApi* | [**get_user_external_component**](docs/UserApi.md#get_user_external_component) | **GET** /tfd/v1/user/external-component | Retrieve equipped external component information
+*UserApi* | [**get_user_reactor**](docs/UserApi.md#get_user_reactor) | **GET** /tfd/v1/user/reactor | Retrieve equipped Reactor information
+*UserApi* | [**get_user_weapon**](docs/UserApi.md#get_user_weapon) | **GET** /tfd/v1/user/weapon | Retrieve equipped weapon information
 
 ## Documentation For Models
 
-- [AcquisitionDetailResponseInner](docs/AcquisitionDetailResponseInner.md)
-- [AdaptLevelResponseInner](docs/AdaptLevelResponseInner.md)
-- [AmorphousOpenConditionDescriptionResponseInner](docs/AmorphousOpenConditionDescriptionResponseInner.md)
-- [AmorphousRewardResponseInner](docs/AmorphousRewardResponseInner.md)
-- [AmorphousRewardResponseInnerOpenRewardInner](docs/AmorphousRewardResponseInnerOpenRewardInner.md)
-- [AmorphousRewardResponseInnerOpenRewardInnerRewardItemInner](docs/AmorphousRewardResponseInnerOpenRewardInnerRewardItemInner.md)
-- [ArcheTuningBoardGroupResponseInner](docs/ArcheTuningBoardGroupResponseInner.md)
-- [ArcheTuningBoardResponseInner](docs/ArcheTuningBoardResponseInner.md)
-- [ArcheTuningBoardResponseInnerNodeInner](docs/ArcheTuningBoardResponseInnerNodeInner.md)
-- [ArcheTuningNodeResponseInner](docs/ArcheTuningNodeResponseInner.md)
-- [ArcheTuningNodeResponseInnerNodeEffectInner](docs/ArcheTuningNodeResponseInnerNodeEffectInner.md)
-- [ConsumableMaterialResponseInner](docs/ConsumableMaterialResponseInner.md)
-- [CoreSlotResponseInner](docs/CoreSlotResponseInner.md)
-- [CoreTypeResponseInner](docs/CoreTypeResponseInner.md)
-- [CoreTypeResponseInnerCoreOptionInner](docs/CoreTypeResponseInnerCoreOptionInner.md)
-- [CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInner](docs/CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInner.md)
-- [CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect](docs/CoreTypeResponseInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect.md)
-- [CoreTypeResponseInnerCoreOptionInnerDetailInner](docs/CoreTypeResponseInnerCoreOptionInnerDetailInner.md)
-- [CoreTypeResponseInnerCoreOptionInnerDetailInnerRequiredCoreItem](docs/CoreTypeResponseInnerCoreOptionInnerDetailInnerRequiredCoreItem.md)
-- [CustomizingItemResponseInner](docs/CustomizingItemResponseInner.md)
-- [CustomizingItemResponseInnerCustomizingItemEvolutionStageInner](docs/CustomizingItemResponseInnerCustomizingItemEvolutionStageInner.md)
-- [DescendantGroupResponseInner](docs/DescendantGroupResponseInner.md)
-- [DescendantLevelDetailResponseInner](docs/DescendantLevelDetailResponseInner.md)
-- [DescendantResponseInner](docs/DescendantResponseInner.md)
-- [DescendantResponseInnerDescendantSkillInner](docs/DescendantResponseInnerDescendantSkillInner.md)
-- [DescendantResponseInnerDescendantStatInner](docs/DescendantResponseInnerDescendantStatInner.md)
-- [DescendantResponseInnerDescendantStatInnerStatDetailInner](docs/DescendantResponseInnerDescendantStatInnerStatDetailInner.md)
+- [AcquisitionDetailsInner](docs/AcquisitionDetailsInner.md)
+- [AdaptLevelsInner](docs/AdaptLevelsInner.md)
+- [AmorphousOpenConditionDescriptionsInner](docs/AmorphousOpenConditionDescriptionsInner.md)
+- [AmorphousRewardsInner](docs/AmorphousRewardsInner.md)
+- [AmorphousRewardsInnerOpenRewardInner](docs/AmorphousRewardsInnerOpenRewardInner.md)
+- [AmorphousRewardsInnerOpenRewardInnerRewardItemInner](docs/AmorphousRewardsInnerOpenRewardInnerRewardItemInner.md)
+- [ArcheTuningBoardGroupsInner](docs/ArcheTuningBoardGroupsInner.md)
+- [ArcheTuningBoardsInner](docs/ArcheTuningBoardsInner.md)
+- [ArcheTuningBoardsInnerNodeInner](docs/ArcheTuningBoardsInnerNodeInner.md)
+- [ArcheTuningNodesInner](docs/ArcheTuningNodesInner.md)
+- [ArcheTuningNodesInnerNodeEffectInner](docs/ArcheTuningNodesInnerNodeEffectInner.md)
+- [ConsumableMaterialsInner](docs/ConsumableMaterialsInner.md)
+- [CoreSlotsInner](docs/CoreSlotsInner.md)
+- [CoreTypesInner](docs/CoreTypesInner.md)
+- [CoreTypesInnerCoreOptionInner](docs/CoreTypesInnerCoreOptionInner.md)
+- [CoreTypesInnerCoreOptionInnerAvailableItemOptionInner](docs/CoreTypesInnerCoreOptionInnerAvailableItemOptionInner.md)
+- [CoreTypesInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect](docs/CoreTypesInnerCoreOptionInnerAvailableItemOptionInnerOptionEffect.md)
+- [CoreTypesInnerCoreOptionInnerDetailInner](docs/CoreTypesInnerCoreOptionInnerDetailInner.md)
+- [CoreTypesInnerCoreOptionInnerDetailInnerRequiredCoreItem](docs/CoreTypesInnerCoreOptionInnerDetailInnerRequiredCoreItem.md)
+- [CustomizingItemsInner](docs/CustomizingItemsInner.md)
+- [CustomizingItemsInnerCustomizingItemEvolutionStageInner](docs/CustomizingItemsInnerCustomizingItemEvolutionStageInner.md)
+- [DescendantGroupsInner](docs/DescendantGroupsInner.md)
+- [DescendantLevelDetailsInner](docs/DescendantLevelDetailsInner.md)
+- [DescendantsInner](docs/DescendantsInner.md)
+- [DescendantsInnerDescendantSkillInner](docs/DescendantsInnerDescendantSkillInner.md)
+- [DescendantsInnerDescendantStatInner](docs/DescendantsInnerDescendantStatInner.md)
+- [DescendantsInnerDescendantStatInnerStatDetailInner](docs/DescendantsInnerDescendantStatInnerStatDetailInner.md)
 - [ErrorMessage](docs/ErrorMessage.md)
 - [ErrorMessageError](docs/ErrorMessageError.md)
-- [ExternalComponentResponseInner](docs/ExternalComponentResponseInner.md)
-- [ExternalComponentResponseInnerBaseStatInner](docs/ExternalComponentResponseInnerBaseStatInner.md)
-- [ExternalComponentResponseInnerSetOptionDetailInner](docs/ExternalComponentResponseInnerSetOptionDetailInner.md)
-- [FellowLevelDetailResponseInner](docs/FellowLevelDetailResponseInner.md)
-- [FellowResponseInner](docs/FellowResponseInner.md)
-- [FellowResponseInnerFellowDetailInner](docs/FellowResponseInnerFellowDetailInner.md)
-- [FellowResponseInnerFellowDetailInnerStatEffectInner](docs/FellowResponseInnerFellowDetailInnerStatEffectInner.md)
-- [MasteryRankLevelDetailResponseInner](docs/MasteryRankLevelDetailResponseInner.md)
-- [MedalResponseInner](docs/MedalResponseInner.md)
-- [MedalResponseInnerMedalDetailInner](docs/MedalResponseInnerMedalDetailInner.md)
-- [ModuleRecommendationResponse](docs/ModuleRecommendationResponse.md)
-- [ModuleRecommendationResponseDescendant](docs/ModuleRecommendationResponseDescendant.md)
-- [ModuleRecommendationResponseDescendantRecommendationInner](docs/ModuleRecommendationResponseDescendantRecommendationInner.md)
-- [ModuleRecommendationResponseWeapon](docs/ModuleRecommendationResponseWeapon.md)
-- [ModuleResponseInner](docs/ModuleResponseInner.md)
-- [ModuleResponseInnerModuleStatInner](docs/ModuleResponseInnerModuleStatInner.md)
-- [ReactorResponseInner](docs/ReactorResponseInner.md)
-- [ReactorResponseInnerReactorSkillPowerInner](docs/ReactorResponseInnerReactorSkillPowerInner.md)
-- [ReactorResponseInnerReactorSkillPowerInnerEnchantEffectInner](docs/ReactorResponseInnerReactorSkillPowerInnerEnchantEffectInner.md)
-- [ReactorResponseInnerReactorSkillPowerInnerSkillPowerCoefficientInner](docs/ReactorResponseInnerReactorSkillPowerInnerSkillPowerCoefficientInner.md)
-- [ResearchResponseInner](docs/ResearchResponseInner.md)
-- [ResearchResponseInnerResearchCostInner](docs/ResearchResponseInnerResearchCostInner.md)
-- [ResearchResponseInnerResearchMaterialInner](docs/ResearchResponseInnerResearchMaterialInner.md)
-- [ResearchResponseInnerResearchResultInner](docs/ResearchResponseInnerResearchResultInner.md)
-- [RewardResponseInner](docs/RewardResponseInner.md)
-- [RewardResponseInnerBattleZoneInner](docs/RewardResponseInnerBattleZoneInner.md)
-- [RewardResponseInnerBattleZoneInnerRewardInner](docs/RewardResponseInnerBattleZoneInnerRewardInner.md)
-- [StatResponseInner](docs/StatResponseInner.md)
-- [TierResponseInner](docs/TierResponseInner.md)
-- [TitleResponseInner](docs/TitleResponseInner.md)
+- [ExternalComponentsInner](docs/ExternalComponentsInner.md)
+- [ExternalComponentsInnerBaseStatInner](docs/ExternalComponentsInnerBaseStatInner.md)
+- [ExternalComponentsInnerSetOptionDetailInner](docs/ExternalComponentsInnerSetOptionDetailInner.md)
+- [FellowLevelDetailsInner](docs/FellowLevelDetailsInner.md)
+- [FellowsInner](docs/FellowsInner.md)
+- [FellowsInnerFellowDetailInner](docs/FellowsInnerFellowDetailInner.md)
+- [FellowsInnerFellowDetailInnerStatEffectInner](docs/FellowsInnerFellowDetailInnerStatEffectInner.md)
+- [MasteryRankLevelDetailsInner](docs/MasteryRankLevelDetailsInner.md)
+- [MedalsInner](docs/MedalsInner.md)
+- [MedalsInnerMedalDetailInner](docs/MedalsInnerMedalDetailInner.md)
+- [ModuleRecommendations](docs/ModuleRecommendations.md)
+- [ModuleRecommendationsDescendant](docs/ModuleRecommendationsDescendant.md)
+- [ModuleRecommendationsDescendantRecommendationInner](docs/ModuleRecommendationsDescendantRecommendationInner.md)
+- [ModuleRecommendationsWeapon](docs/ModuleRecommendationsWeapon.md)
+- [ModulesInner](docs/ModulesInner.md)
+- [ModulesInnerModuleStatInner](docs/ModulesInnerModuleStatInner.md)
+- [ReactorsInner](docs/ReactorsInner.md)
+- [ReactorsInnerReactorSkillPowerInner](docs/ReactorsInnerReactorSkillPowerInner.md)
+- [ReactorsInnerReactorSkillPowerInnerEnchantEffectInner](docs/ReactorsInnerReactorSkillPowerInnerEnchantEffectInner.md)
+- [ReactorsInnerReactorSkillPowerInnerSkillPowerCoefficientInner](docs/ReactorsInnerReactorSkillPowerInnerSkillPowerCoefficientInner.md)
+- [ResearchInner](docs/ResearchInner.md)
+- [ResearchInnerResearchCostInner](docs/ResearchInnerResearchCostInner.md)
+- [ResearchInnerResearchMaterialInner](docs/ResearchInnerResearchMaterialInner.md)
+- [ResearchInnerResearchResultInner](docs/ResearchInnerResearchResultInner.md)
+- [RewardsInner](docs/RewardsInner.md)
+- [RewardsInnerBattleZoneInner](docs/RewardsInnerBattleZoneInner.md)
+- [RewardsInnerBattleZoneInnerRewardInner](docs/RewardsInnerBattleZoneInnerRewardInner.md)
+- [StatsInner](docs/StatsInner.md)
+- [TiersInner](docs/TiersInner.md)
+- [TitlesInner](docs/TitlesInner.md)
 - [User](docs/User.md)
 - [UserArcheTuning](docs/UserArcheTuning.md)
 - [UserArcheTuningArcheTuningInner](docs/UserArcheTuningArcheTuningInner.md)
@@ -208,12 +205,12 @@ Class | Method | HTTP request | Description
 - [UserWeaponWeaponInner](docs/UserWeaponWeaponInner.md)
 - [UserWeaponWeaponInnerCoreInner](docs/UserWeaponWeaponInnerCoreInner.md)
 - [UserWeaponWeaponInnerWeaponAdditionalStatInner](docs/UserWeaponWeaponInnerWeaponAdditionalStatInner.md)
-- [VoidBattleResponseInner](docs/VoidBattleResponseInner.md)
-- [WeaponResponseInner](docs/WeaponResponseInner.md)
-- [WeaponResponseInnerBaseStatInner](docs/WeaponResponseInnerBaseStatInner.md)
-- [WeaponResponseInnerFirearmAtkInner](docs/WeaponResponseInnerFirearmAtkInner.md)
-- [WeaponResponseInnerFirearmAtkInnerFirearmInner](docs/WeaponResponseInnerFirearmAtkInnerFirearmInner.md)
-- [WeaponTypeResponseInner](docs/WeaponTypeResponseInner.md)
+- [VoidBattlesInner](docs/VoidBattlesInner.md)
+- [WeaponTypesInner](docs/WeaponTypesInner.md)
+- [WeaponsInner](docs/WeaponsInner.md)
+- [WeaponsInnerBaseStatInner](docs/WeaponsInnerBaseStatInner.md)
+- [WeaponsInnerFirearmAtkInner](docs/WeaponsInnerFirearmAtkInner.md)
+- [WeaponsInnerFirearmAtkInnerFirearmInner](docs/WeaponsInnerFirearmAtkInnerFirearmInner.md)
 
 <a id="documentation-for-authorization"></a>
 
