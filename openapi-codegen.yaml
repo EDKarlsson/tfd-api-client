@@ -11,9 +11,10 @@ additionalProperties:
   hideGenerationTimestamp: true
 
 # Optional: Specify which files to generate
-# globalProperties:
-#   models: ""
-#   apis: ""
+globalProperties:
+  models: ""
+  apis: ""
+  tests: ""
 
 # Optional: Specify which models or APIs to include/exclude
 # models:
