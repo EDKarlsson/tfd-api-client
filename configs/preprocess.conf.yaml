@@ -4,4 +4,8 @@ general:
     - recommendation
 paths:
   recommendation/module: module recomendations
-  meta/research.json: research # no plural for research
+  meta/research: research # no plural for research
+schemas:
+  skip:
+    - User
+    - Research
